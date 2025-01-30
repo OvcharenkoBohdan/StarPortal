@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Table</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gordita:wght@400;700&display=swap');
+        body {
+            font-family: 'Gordita', sans-serif;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .categories {
+            width: 30%;
+            border-right: 1px solid #ccc;
+        }
+        .categories ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .categories li {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+        .categories li:hover {
+            background-color: #f0f0f0;
+        }
+        .info {
+            width: 70%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="categories">
+            <ul id="categoryList">
+                <li onclick="showPolicies('Communication')">Communication</li>
+                <li onclick="showPolicies('Client Interaction')">Client Interaction</li>
+                <li onclick="showPolicies('Medical Insurance')">Medical Insurance</li>
+                <li onclick="showPolicies('Service Policies')">Service Policies</li>
+                <li onclick="showPolicies('Employee Benefits')">Employee Benefits</li>
+                <li onclick="showPolicies('Cooperation')">Cooperation</li>
+            </ul>
+        </div>
+        <div class="info" id="info">
+            <h2>Policy Information</h2>
+            <p>Select a category to see policies.</p>
+        </div>
+    </div>
+
+    <script>
+        const policyData = {
+            "Communication": "<a href='https://example.com/communication-policy' target='_blank'>Communication Policy</a>",
+            "Client Interaction": "<a href='https://example.com/client-interaction-policy' target='_blank'>Client Interaction Policy</a>",
+            "Medical Insurance": "<a href='https://example.com/medical-insurance-policy' target='_blank'>Medical Insurance Policy</a><br><a href='https://example.com/reimbursement-policy' target='_blank'>Medical Insurance and Reimbursement Policy</a>",
+            "Service Policies": "<a href='https://example.com/service-off-entitlements' target='_blank'>Service off Entitlements Policy</a><br><a href='https://example.com/service-schedule' target='_blank'>Service Providing Schedule Policy</a>",
+            "Employee Benefits": "<a href='https://example.com/benefit-compensation' target='_blank'>Benefit Compensation Policy</a><br><a href='https://example.com/multisport' target='_blank'>Multisport Benefit Program Policy</a><br><a href='https://example.com/referral' target='_blank'>Referral Policy</a>",
+            "Cooperation": "<a href='https://example.com/cooperation-terms' target='_blank'>Cooperation Terms Policy</a><br><a href='https://example.com/end-cooperation' target='_blank'>End of Cooperation Policy</a><br><a href='https://example.com/flexible-office' target='_blank'>Global Flexible Office Spaces Policy</a>"
+        };
+
+        function showPolicies(category) {
+            document.getElementById("info").innerHTML = `<h2>${category} Policies</h2><p>${policyData[category]}</p>`;
+        }
+    </script>
+</body>
+</html>
